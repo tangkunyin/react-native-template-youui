@@ -1,0 +1,24 @@
+{
+  "name": "react-native-template-youui",
+  "version": "0.0.1-alpha",
+  "description": "A react-native template using youui and advanced mobx architecture",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tangkunyin/react-native-template-youui.git"
+  },
+  "keywords": [
+    "react-native-template",
+    "react-native-template-youui",
+    "rn-template"
+  ],
+  "author": "thomas tang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tangkunyin/react-native-template-youui/issues"
+  },
+  "homepage": "https://github.com/tangkunyin/react-native-template-youui#readme"
+}
