@@ -1,6 +1,8 @@
-# YouUI && MobX React Native Template
+# The scaffold for react-native
 
-It's an experienced template for a new react native project with youui and mobx architecture from react-native-template-youui.
+> YouUI and MobX React Native Template
+
+It's an experienced template for a new react native project with youui and mobx architecture.
 
 
 ## 1. Prepare
@@ -30,7 +32,7 @@ On Android platfrom, `Android studio` or `Genymotion` is needed.
 
 > Btw, if you are not familiar with iOS and Android and coding on Windows, `CRNA` may be more suitable for you.
 
-After finish install dependencies, we can launch the template easily.
+After finish install dependencies, you can launch the template easily.
 
 ## 2. Install
 
@@ -40,6 +42,9 @@ After finish install dependencies, we can launch the template easily.
 2. `$ react-native init xxx --template youui`
 3. `$ cd xxx`
 4. `$ cat gitignore >> .gitignore && rm gitignore`
+
+> Notice: The devDependencies can not be installed automatically so far (0.54.4). So you have to update it manually
+> The more detail here is: https://github.com/facebook/react-native/pull/18164
 
 At last, launch it to check.
 
@@ -79,19 +84,21 @@ Question: **How to change the package-manager default port**
 It's all
 
 
-## Other useful resources
+## 4. Other useful resources
 
 1. [react layouts](https://facebook.github.io/react-native/docs/layout-props.html)
 2. [mobx best practices in react-native](http://mobxjs.github.io/mobx/best/pitfalls.html)
 
 
-## Code style recommend
+## 5. Code style recommend
 
 1. Use ES7
 2. Four spaces instead of tab
 3. ESLint Enable
 
-## Built with
+## 6. Built with
+
+[react-native-template-youui](https://github.com/tangkunyin/react-native-template-youui)
 
 Thanks to [FaceBook](http://facebook.github.io/react-native/) and [80% team](https://www.80percent.io)
 
