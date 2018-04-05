@@ -1,0 +1,54 @@
+/**
+  *
+  *   This is the third extention libs. Some of them need run `react-native link xxx` when you installed.
+  *   (第三方功能扩展包，为加快模板安装速度，此处将非基础类库拎出。如有需要，请直接Copy到package.json中)
+  *
+  */
+{
+        // Button Libs
+        "react-native-action-button": "^2.8.4",
+        "react-native-actionsheet": "^2.3.0",
+        "react-native-button": "^2.3.0",
+
+
+        // Animation
+        "react-native-animatable": "^1.2.4",
+        "lottie-react-native":"^2.3.2",
+
+
+        // Native Navigation
+        "native-navigation": "^0.2.1",
+
+
+        // Blur background style
+        "react-native-blur": "^3.2.2",
+
+
+        // UIKit && components
+        "react-native-elements": "^0.19.0",
+
+        // File access and data transfer
+        "react-native-fetch-blob": "^0.10.8",
+
+
+        // ImagePicker
+        "react-native-image-picker": "^0.26.7",
+
+
+        // Progress components
+        "react-native-image-progress": "^1.1.0",
+        "react-native-progress": "^3.4.0",
+        "react-native-progress-bar-classic": "^1.2.1",
+
+
+        "react-native-scrollable-tab-view": "^0.8.0",
+
+
+        "react-native-image-resizer": "^1.0.0",
+
+
+        "react-native-root-toast": "^3.0.1",
+
+
+        "react-native-smart-keyboard": "git+https://github.com/80percent/react-native-smart-keyboard.git",
+}
