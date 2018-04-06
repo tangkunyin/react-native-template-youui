@@ -2,15 +2,16 @@
 
 import { NavigationOptions } from '../config/NavigationConfig';
 // MainPage
-import OfflineIndex from '../containers/OfflineIndex';
-import OnlineIndex from '../containers/OnlineIndex';
+import HomeScreen from '../screens/home/index';
+import MineScreen from '../screens/mine/index';
 // SubPage
-import AsyncStateScreen from '../containers/views/AsyncStateScreen';
-import AllListRefreshScreen from '../containers/views/AllListRefreshScreen';
-import SyncStateScreen from '../containers/views/SyncStateScreen';
-import PartListRefreshScreen from '../containers/views/PartListRefreshScreen';
+import StatusBarPlayground from '../screens/home/views/StatusBarPlayground';
+import AsyncStateScreen from '../screens/home/views/AsyncStateScreen';
+import AllListRefreshScreen from '../screens/home/views/AllListRefreshScreen';
+import SyncStateScreen from '../screens/home/views/SyncStateScreen';
+import PartListRefreshScreen from '../screens/home/views/PartListRefreshScreen';
 
-// 动态添加 navigationOptions
+// navigationOptions dynamic added
 const ScreenOptionExt = (screen) => {
     const extScreen = {};
     Object.keys(screen)
@@ -24,20 +25,20 @@ const ScreenOptionExt = (screen) => {
     return extScreen;
 };
 
-const OfflineTabChildScreens = ScreenOptionExt({
-    OfflineScreen: { screen: OfflineIndex, root: true },
+const HomeTabChildScreens = ScreenOptionExt({
+    HomeScreen: { screen: HomeScreen, root: true },
+    StatusBarPlayground: { screen: StatusBarPlayground },
     AsyncStateScreen: { screen: AsyncStateScreen },
     AllListRefreshScreen: { screen: AllListRefreshScreen },
     SyncStateScreen: { screen: SyncStateScreen },
     PartListRefreshScreen: { screen: PartListRefreshScreen },
 });
 
-const OnlineTabChildScreens = ScreenOptionExt({
-    OnlineScreen: { screen: OnlineIndex, root: true }
+const MineTabChildScreens = ScreenOptionExt({
+    MineScreen: { screen: MineScreen, root: true }
 });
 
-// TODO 取出来后Screen对象的顺序应该是不能保证的，而结果又是正确的 ！！ ？
 export {
-    OfflineTabChildScreens,
-    OnlineTabChildScreens
+    HomeTabChildScreens,
+    MineTabChildScreens
 };

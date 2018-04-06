@@ -4,44 +4,33 @@
  * 自定义Navigation 和 TabBars
  */
 import React from 'react';
-import Button from '../components/Button';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Colors from "../constants/Colors";
+import Styles from '../constants/Styles';
+import IconButton from '../components/IconButton';
 
 const NavigationOptions = (options, root) => {
     const { state, goBack } = options.navigation;
-    const headerStyle = { backgroundColor: '#4ECBFC' };
-    const headerTitleStyle = {
-        fontSize: 18,
-        color: 'white',
-        fontWeight: '500',
-        alignSelf: 'center',
-        textAlign: 'center'
-    };
+    const headerStyle = { backgroundColor: Colors.tintColor };
+    const headerTitleStyle = Styles.headerTitle;
     // 滑动返回收拾，安卓默认关闭了，这里把它打开
     const gesturesEnabled = true;
-    let headerRight;
-    if (state.params ? state.params.headerRight : null) {
-        headerRight = state.params.headerRight;
-    }
+    const headerBackTitle = false;
     let header;
     if (state.params ? state.params.isVisible === true : null) {
         header = null;
     }
+   
     // 给子项自定义返回按钮
     let headerLeft = null;
-    const headerBackTitle = false;
+    let headerRight = null;
     if (!root) {
-        headerLeft = (
-            <Button customView={<Icon name={'ios-arrow-back'} size={30} color={'white'} style={{ marginLeft: 13 }}/>}
-                    onPress={() => {
-                        goBack();
-                    }}
-            />
-        );
-        if (__ANDROID__) {
-            headerRight = (
-                <Button customView={<Icon name={'ios-share'} size={30} color={'white'} style={{ marginRight: 13 }}/>}/>
-            );
+        headerLeft = <IconButton name={'ios-arrow-back'} style={{ marginLeft: 13 }} onPress={() => { goBack(); }} />;
+        // 给二级页加右边按钮
+        if (state.params ? state.params.headerRight : null) {
+            headerRight = state.params.headerRight;
+        } else {
+            // 默认一项
+            headerRight = <IconButton name={'ios-search'} style={{ marginRight: 13 }} />;
         }
     }
     return {
@@ -54,7 +43,6 @@ const NavigationOptions = (options, root) => {
         gesturesEnabled
     };
 };
-
 
 const TabBarOptions = {
     indicatorStyle: {
@@ -75,9 +63,9 @@ const TabBarOptions = {
     showIcon: true,
     scrollEnabled: false,
     // label和icon的前景色 活跃状态下（选中）
-    activeTintColor: '#4ECBFC',
+    activeTintColor: Colors.tabIconSelected,
     // label和icon的前景色 不活跃状态下(未选中)
-    inactiveTintColor: '#aaa',
+    inactiveTintColor: Colors.tabIconDefault,
     // label和icon的背景色 活跃状态下
     activeBackgroundColor: 'white',
     // label和icon的背景色 不活跃状态下

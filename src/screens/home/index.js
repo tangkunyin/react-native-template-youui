@@ -3,9 +3,9 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { SectionList } from 'react-native';
-import BasePage from '../components/BasePage';
+import BaseScreen from '../BaseScreen';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { sections } from '../mock/OfflineData';
+import { HomeList } from '../../mock/index';
 
 const Container = styled.View`
   flex: 1;
@@ -31,23 +31,15 @@ const ItemLabel = styled.Text`
   margin-bottom: 5px;
 `;
 
-export default class OfflineIndex extends BasePage {
-
+export default class HomeScreen extends BaseScreen {
     static navigationOptions = {
-        title: '线下',
+        title: 'Home',
         tabBarIcon: ({ tintColor }) => (
             <Icon name={'home'} color={tintColor} size={24}/>
         )
     };
-
-    constructor(props) {
-        super(props);
-        this._renderItem = this._renderItem.bind(this);
-        this._renderSectionHeader = this._renderSectionHeader.bind(this);
-    }
-
-
-    _renderItem(data) {
+    
+    _renderItem = (data) => {
         return (
             <ItemLabel onPress={() => {
                 this.openPage(data.item.page, { title: data.item.title });
@@ -55,17 +47,17 @@ export default class OfflineIndex extends BasePage {
                 {data.item.title}
             </ItemLabel>
         );
-    }
+    };
 
-    _renderSectionHeader(data) {
+    _renderSectionHeader = (data) => {
         return <Header>{data.section.title}</Header>;
-    }
+    };
 
-    render() {
+    renderContent() {
         return (
             <Container>
                 <SectionList
-                    sections={sections}
+                    sections={HomeList}
                     keyExtractor={(_, i) => i}
                     renderItem={this._renderItem}
                     renderSectionHeader={this._renderSectionHeader}/>

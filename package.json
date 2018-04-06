@@ -1,6 +1,6 @@
 {
   "name": "react-native-template-youui",
-  "version": "0.0.1-alpha",
+  "version": "0.0.1-beta",
   "description": "A react-native template using youui and advanced mobx architecture",
   "main": "index.js",
   "scripts": {

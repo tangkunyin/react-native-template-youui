@@ -2,16 +2,15 @@
 
 import React from 'react';
 import styled from 'styled-components/native';
-import BasePage from '../../components/BasePage';
+import BaseSubScreen from "../../BaseSubScreen";
 
 const Container = styled.View`
   flex: 1;
   margin: 15px;
 `;
 
-export default class PartListRefreshScreen extends BasePage {
-
-    render() {
+export default class PartListRefreshScreen extends BaseSubScreen {
+    renderContent() {
         return (
             <Container/>
         );

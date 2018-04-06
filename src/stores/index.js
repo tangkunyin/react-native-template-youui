@@ -1,7 +1,7 @@
 'use strict';
 
-import SearchStore from './searchStore';
+import HelloStore from './HelloStore';
 
 export default {
-    searchStore: new SearchStore(),
+    helloStore: new HelloStore(),
 };

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import styled from 'styled-components/native';
-import BasePage from '../../components/BasePage';
+import BaseSubScreen from "../../BaseSubScreen";
 
 const Container = styled.View`
   flex: 1;
@@ -17,8 +17,7 @@ const Btn = styled.Button`
   margin: 15px;
 `;
 
-export default class AsyncStateScreen extends BasePage {
-
+export default class AsyncStateScreen extends BaseSubScreen {
     constructor(props) {
         super(props);
         this.state = {
@@ -58,15 +57,15 @@ export default class AsyncStateScreen extends BasePage {
         this.setState({ data });
         console.log('after', index, active);
     }
-    
-    render() {
+
+    renderContent() {
         return (
             <Container>
                 {
                     this.state.data.map((item, index) => {
                         return <Btn key={index}
                                     title={item.title}
-                                    color={item.active ? 'red' : '#841584'}
+                                    color={item.active ? 'red' : 'green'}
                                     onPress={() => {
                                         this._onBtnPress(index, item.active);
                                     }}/>;

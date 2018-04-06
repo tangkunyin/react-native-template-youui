@@ -1,10 +1,11 @@
-v0.0.1-beta - April 5, 2018
+v0.0.1-beta - April 6, 2018
 
 * reorganize the project structure
 * update docs for `devDependencies`
 * add `server.js` for api test
 * simplify init dependencies and add extend devDependencies for you
-* other compile errors
+* mobx and network request demo added
+* other optimize change
 
 v0.0.1-alpha - April 1, 2018
 

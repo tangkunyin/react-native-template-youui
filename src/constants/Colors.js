@@ -13,6 +13,7 @@ export default {
     warningText: '#666804',
     noticeBackground: tintColor,
     noticeText: '#fff',
+    background: '#fefefe',
 
     primary: '#9E9E9E',
     primary1: '#4d86f7',

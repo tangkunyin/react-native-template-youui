@@ -19,7 +19,7 @@ if (!__DEV__) {
     };
 }
 
-export default class MobXApp extends PureComponent {
+export default class App extends PureComponent {
     render() {
         return (
             <Provider {...stores}>
@@ -29,4 +29,5 @@ export default class MobXApp extends PureComponent {
     }
 }
 
-AppRegistry.registerComponent('MobXApp', () => MobXApp);
+// change xxx to your own module name.
+AppRegistry.registerComponent('YouUITemplate', () => App);

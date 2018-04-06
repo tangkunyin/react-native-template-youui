@@ -3,7 +3,7 @@
 import { StackNavigator, TabBarBottom, TabNavigator } from 'react-navigation';
 import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
 import { TabBarOptions } from '../config/NavigationConfig';
-import { OfflineTabChildScreens, OnlineTabChildScreens } from './AppScreens';
+import { HomeTabChildScreens, MineTabChildScreens } from './AppScreens';
 
 /**
  * path属性适用于其他app或浏览器使用url打开本app并进入指定页面。
@@ -12,23 +12,23 @@ import { OfflineTabChildScreens, OnlineTabChildScreens } from './AppScreens';
  */
 const Navigation = TabNavigator(
     {
-        Offline: {
-            screen: StackNavigator(OfflineTabChildScreens, {
+        home: {
+            screen: StackNavigator(HomeTabChildScreens, {
                 headerMode: 'screen',
                 transitionConfig: () => ({
                     screenInterpolator: CardStackStyleInterpolator.forHorizontal,
                 })
             }),
-            path: 'offline'
+            path: 'home'
         },
-        Online: {
-            screen: StackNavigator(OnlineTabChildScreens, {
+        mine: {
+            screen: StackNavigator(MineTabChildScreens, {
                 headerMode: 'screen',
                 transitionConfig: () => ({
                     screenInterpolator: CardStackStyleInterpolator.forHorizontal,
                 })
             }),
-            path: 'online'
+            path: 'mine'
         }
     },
     {
@@ -37,7 +37,7 @@ const Navigation = TabNavigator(
         backBehavior: 'none',
         tabBarPosition: 'bottom',
         tabBarComponent: TabBarBottom,
-        initialRouteName: 'Offline',
+        initialRouteName: 'home',
         swipeEnabled: false,
         animationEnabled: false,
         tabBarOptions: TabBarOptions
