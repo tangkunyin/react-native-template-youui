@@ -142,6 +142,7 @@
         "react/jsx-first-prop-new-line": 0,
         "react/no-unused-prop-types": 0,
         "react/jsx-closing-bracket-location": 0,
-        "no-bitwise": 0
+        "no-bitwise": 0,
+        "object-curly-newline": 0
     }
 }
