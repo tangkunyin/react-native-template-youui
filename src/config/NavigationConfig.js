@@ -4,6 +4,7 @@
  * 自定义Navigation 和 TabBars
  */
 import React from 'react';
+import { Platform } from 'react-native';
 import Colors from "../constants/Colors";
 import Styles from '../constants/Styles';
 import Layout from "../constants/Layout";
@@ -12,7 +13,7 @@ import IconButton from '../components/IconButton';
 const NavigationOptions = (options, root) => {
     const { goBack } = options.navigation;
     const params = options.navigationOptions;
-    const headerStyle = { backgroundColor: Colors.tintColor };
+
     // 滑动返回收拾，安卓默认关闭了，这里把它打开
     const gesturesEnabled = true;
     const headerBackTitle = false;
@@ -20,6 +21,24 @@ const NavigationOptions = (options, root) => {
     let header;
     if (params ? params.isVisible === true : null) {
         header = null;
+    }
+
+    // 导航条底部阴影控制
+    let headerStyle = { backgroundColor: Colors.tintColor };
+    if (params ? params.bottomShadow === false : null) {
+        const shadow = Platform.select({
+            ios: {
+                shadowOpacity: 0
+            },
+            android: {
+                elevation: 0
+            }
+        });
+        headerStyle = {
+            ...headerStyle,
+            ...shadow,
+            borderBottomWidth: 0
+        };
     }
 
     // 修改标题文字颜色
