@@ -6,6 +6,7 @@
 import React from 'react';
 import Colors from "../constants/Colors";
 import Styles from '../constants/Styles';
+import Layout from "../constants/Layout";
 import IconButton from '../components/IconButton';
 
 const NavigationOptions = (options, root) => {
@@ -30,7 +31,7 @@ const NavigationOptions = (options, root) => {
     }
     if (!root && !headerLeft) {
         // 默认返回样式
-        headerLeft = <IconButton name={'ios-arrow-back'} style={{ marginLeft: 13 }} onPress={() => { goBack(); }} />;
+        headerLeft = <IconButton name={'ios-arrow-back'} style={{ marginLeft: Layout.navBarHSpace }} onPress={() => { goBack(); }} />;
     }
     // 导航栏右边按钮
     let headerRight = null;
