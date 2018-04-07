@@ -143,6 +143,7 @@
         "react/no-unused-prop-types": 0,
         "react/jsx-closing-bracket-location": 0,
         "no-bitwise": 0,
-        "object-curly-newline": 0
+        "object-curly-newline": 0,
+        "padded-blocks": 0
     }
 }
