@@ -9,30 +9,35 @@ import Styles from '../constants/Styles';
 import IconButton from '../components/IconButton';
 
 const NavigationOptions = (options, root) => {
-    const { state, goBack } = options.navigation;
+    const { goBack } = options.navigation;
+    const params = options.navigationOptions;
+
     const headerStyle = { backgroundColor: Colors.tintColor };
     const headerTitleStyle = Styles.headerTitle;
     // 滑动返回收拾，安卓默认关闭了，这里把它打开
     const gesturesEnabled = true;
     const headerBackTitle = false;
+
     let header;
-    if (state.params ? state.params.isVisible === true : null) {
+    if (params ? params.isVisible === true : null) {
         header = null;
     }
-   
-    // 给子项自定义返回按钮
+
+    // 自定义返回按钮
     let headerLeft = null;
-    let headerRight = null;
-    if (!root) {
-        headerLeft = <IconButton name={'ios-arrow-back'} style={{ marginLeft: 13 }} onPress={() => { goBack(); }} />;
-        // 给二级页加右边按钮
-        if (state.params ? state.params.headerRight : null) {
-            headerRight = state.params.headerRight;
-        } else {
-            // 默认一项
-            headerRight = <IconButton name={'ios-search'} style={{ marginRight: 13 }} />;
-        }
+    if (params ? params.headerLeft : null) {
+        headerLeft = params.headerLeft;
     }
+    if (!root && !headerLeft) {
+        // 默认返回样式
+        headerLeft = <IconButton name={'ios-arrow-back'} style={{ marginLeft: 13 }} onPress={() => { goBack(); }} />;
+    }
+    // 导航栏右边按钮
+    let headerRight = null;
+    if (params ? params.headerRight : null) {
+        headerRight = params.headerRight;
+    }
+
     return {
         header,
         headerStyle,
