@@ -12,9 +12,7 @@ import IconButton from '../components/IconButton';
 const NavigationOptions = (options, root) => {
     const { goBack } = options.navigation;
     const params = options.navigationOptions;
-
     const headerStyle = { backgroundColor: Colors.tintColor };
-    const headerTitleStyle = Styles.headerTitle;
     // 滑动返回收拾，安卓默认关闭了，这里把它打开
     const gesturesEnabled = true;
     const headerBackTitle = false;
@@ -22,6 +20,12 @@ const NavigationOptions = (options, root) => {
     let header;
     if (params ? params.isVisible === true : null) {
         header = null;
+    }
+
+    // 修改标题文字颜色
+    let headerTitleStyle = Styles.headerTitle;
+    if (params ? params.headerTitleColor : null) {
+        headerTitleStyle = { ...headerTitleStyle, color: params.headerTitleColor };
     }
 
     // 自定义返回按钮
