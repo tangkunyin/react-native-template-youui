@@ -43,8 +43,8 @@ After finish install dependencies, you can launch the template easily.
 3. `$ cd xxx`
 4. `$ cat gitignore >> .gitignore && rm gitignore`
 
-> Notice: The devDependencies can not be installed automatically so far (0.54.4). So you have to update it manually
-> The more detail here is: https://github.com/facebook/react-native/pull/18164
+> Notice: The devDependencies can not be installed automatically before version 0.54.4. You must update it manually
+>> The more detail here is: https://github.com/facebook/react-native/pull/18164
 
 At last, launch it to check.
 
