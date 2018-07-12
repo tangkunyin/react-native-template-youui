@@ -9,14 +9,14 @@ It's an experienced template for a new react native project with youui and mobx 
 
 Install Dependencies:
 
-1. NVM( ~> 0.33.8 )
+1. NVM( ~> 0.33.11 )
 
    `$ brew update && brew install nvm`
 
 
-1. NodeJS( ~> 8.10.0LTS )
+1. NodeJS( ~> 8.11.2LTS )
 
-   `$ nvm install v8.10.0`
+   `$ nvm install v8.11.2`
 
 2. yarn
 

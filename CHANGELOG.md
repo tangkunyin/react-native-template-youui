@@ -1,3 +1,7 @@
+v0.0.2-beta - July 12, 2018
+
+* upgrade dependencies version
+
 v0.0.1-beta - April 6, 2018
 
 * reorganize the project structure
