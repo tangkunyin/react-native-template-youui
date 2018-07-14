@@ -1,4 +1,4 @@
-v0.0.3-beta - July 12, 2018
+v0.0.3-beta - July 14, 2018
 
 * fix babel error  (Property right of AssignmentExpression expected ...)[https://github.com/babel/babel/issues/8284]
 * fix react-navigation 2.6.x error and some deprecated warns
