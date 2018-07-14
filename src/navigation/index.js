@@ -1,7 +1,7 @@
 'use strict';
 
 import { StackNavigator, TabBarBottom, TabNavigator } from 'react-navigation';
-import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
+import StackViewStyleInterpolator from 'react-navigation/src/views/StackView/StackViewStyleInterpolator';
 import { TabBarOptions } from '../config/NavigationConfig';
 import { HomeTabChildScreens, MineTabChildScreens } from './AppScreens';
 
@@ -16,7 +16,7 @@ const Navigation = TabNavigator(
             screen: StackNavigator(HomeTabChildScreens, {
                 headerMode: 'screen',
                 transitionConfig: () => ({
-                    screenInterpolator: CardStackStyleInterpolator.forHorizontal,
+                    screenInterpolator: StackViewStyleInterpolator.forHorizontal,
                 })
             }),
             path: 'home'
@@ -25,7 +25,7 @@ const Navigation = TabNavigator(
             screen: StackNavigator(MineTabChildScreens, {
                 headerMode: 'screen',
                 transitionConfig: () => ({
-                    screenInterpolator: CardStackStyleInterpolator.forHorizontal,
+                    screenInterpolator: StackViewStyleInterpolator.forHorizontal,
                 })
             }),
             path: 'mine'
