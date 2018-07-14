@@ -30,4 +30,4 @@ export default class App extends PureComponent {
 }
 
 // change xxx to your own module name.
-AppRegistry.registerComponent('YouUITemplate', () => App);
+AppRegistry.registerComponent('YouUIMobX', () => App);
