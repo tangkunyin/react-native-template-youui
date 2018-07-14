@@ -1,7 +1,7 @@
 'use strict';
 
-import HttpClient from '../api/HttpClient';
 import { observable, computed, action, runInAction } from 'mobx';
+import HttpClient from '../api/HttpClient';
 
 export default class HelloStore {
     service = null;
