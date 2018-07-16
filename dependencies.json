@@ -9,5 +9,6 @@
         "styled-components": "^3.3.3",
         "@feathersjs/feathers": "^3.1.7",
         "@feathersjs/rest-client": "^1.4.1",
-        "node-fetch": "^2.1.2"
+        "node-fetch": "^2.1.2",
+        "jsc-android": "224109.x.x"
 }
