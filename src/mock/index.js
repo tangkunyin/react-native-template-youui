@@ -1,38 +1,12 @@
 
 const HomeList = [
     {
-        title: 'StatusBar playground',
+        title: '标题一',
         data: [
             {
-                title: 'StatusBar playground',
+                headerTitle: '状态栏把玩',
                 page: 'StatusBarPlayground'
             }
-        ]
-    },
-    {
-        title: 'normal setState',
-        data: [
-            {
-                title: 'asynchronous state',
-                page: 'AsyncStateScreen'
-            },
-            {
-                title: 'list all refresh',
-                page: 'AllListRefreshScreen'
-            },
-        ]
-    },
-    {
-        title: 'MobX managed state',
-        data: [
-            {
-                title: 'synchronous state',
-                page: 'SyncStateScreen'
-            },
-            {
-                title: 'list partly refresh',
-                page: 'PartListRefreshScreen'
-            },
         ]
     }
 ];
