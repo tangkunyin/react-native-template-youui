@@ -1,9 +1,9 @@
-v0.0.4-beta - July 14, 2018
+v0.0.4-beta - July 18, 2018
 
 * fix error `mobx , can't find variable:Symbol` on Android (see this [issues](https://github.com/mobxjs/mobx-react/issues/498))
 * exactly babel version [issues/19955](https://github.com/facebook/react-native/issues/19955)
 * upgrade `jsc-android` version (MobX 5 doesn't work on RN Android fixed), see [here](https://github.com/react-community/jsc-android-buildscripts#how-to-use-it-with-my-react-native-app)
-
+* optimize navigation with `react-navigation V2.6.x` and fixed deprecate warnings
 
 v0.0.3-beta - July 14, 2018
 
