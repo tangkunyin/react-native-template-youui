@@ -5,14 +5,17 @@
  */
 import React from 'react';
 import { Platform } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import Colors from "../constants/Colors";
 import Styles from '../constants/Styles';
 import Layout from "../constants/Layout";
 import IconButton from '../components/IconButton';
 
-const NavigationOptions = (options, root) => {
+const StackNavigatorConfig = (options, root) => {
     const { goBack } = options.navigation;
     const params = options.navigationOptions;
+
+    console.log('StackNavigatorConfig params is', params);
 
     // 滑动返回收拾，安卓默认关闭了，这里把它打开
     const gesturesEnabled = true;
@@ -73,6 +76,33 @@ const NavigationOptions = (options, root) => {
     };
 };
 
+const BottomTabNavigatorConfig = (navigation) => {
+    let tabBarLabel;
+    let tabBarIcon;
+    switch (navigation.state.routeName) {
+        case 'home':
+            tabBarLabel = '我的';
+            tabBarIcon = ({ tintColor }) => (<Icon name={'home'} color={tintColor} size={24}/>);
+            break;
+        case 'mine':
+            tabBarLabel = '我的';
+            tabBarIcon = ({ tintColor }) => (<Icon name={'user'} color={tintColor} size={24}/>);
+            break;
+        default:
+            break;
+    }
+    // 二级页隐藏
+    let tabBarVisible = true;
+    if (navigation.state.index > 0) {
+        tabBarVisible = false;
+    }
+    return {
+        tabBarLabel,
+        tabBarIcon,
+        tabBarVisible,
+    };
+};
+
 const TabBarOptions = {
     indicatorStyle: {
         height: 0, // android 中TabBar下面会显示一条线，高度设为 0 后就不显示线了
@@ -106,6 +136,7 @@ const TabBarOptions = {
 };
 
 export {
-    NavigationOptions,
+    StackNavigatorConfig,
+    BottomTabNavigatorConfig,
     TabBarOptions,
 };
