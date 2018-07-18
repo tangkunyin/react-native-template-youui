@@ -2,10 +2,11 @@
 
 import React from 'react';
 import {Button, Text, View} from 'react-native';
-import BaseSubScreen from "../../BaseSubScreen";
+import BaseScreen from "../../BaseScreen";
 import AppStatusBar from '../../../components/widgets/AppStatusBar';
 
-export default class StatusBarPlayground extends BaseSubScreen {
+export default class StatusBarPlayground extends BaseScreen {
+    
     state = {
         animated: true,
         hidden: false,

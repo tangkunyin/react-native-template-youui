@@ -3,10 +3,9 @@
 import React from 'react';
 import { Button } from 'react-native';
 import styled from 'styled-components/native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import lodash from 'lodash';
-import BaseScreen from "../BaseScreen";
 import { observer, inject } from 'mobx-react';
+import BaseScreen from "../BaseScreen";
 
 const Container = styled.View`
   flex: 1;
@@ -32,10 +31,7 @@ const Label = styled.Text`
 @observer
 export default class MineScreen extends BaseScreen {
     static navigationOptions = {
-        title: 'Mine',
-        tabBarIcon: ({ tintColor }) => (
-            <Icon name={'user'} color={tintColor} size={24}/>
-        )
+        headerTitle: '接口'
     };
 
     // one click per seconds

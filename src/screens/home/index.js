@@ -4,7 +4,6 @@ import React from 'react';
 import styled from 'styled-components/native';
 import { SectionList } from 'react-native';
 import BaseScreen from '../BaseScreen';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import { HomeList } from '../../mock/index';
 
 const Container = styled.View`
@@ -33,18 +32,15 @@ const ItemLabel = styled.Text`
 
 export default class HomeScreen extends BaseScreen {
     static navigationOptions = {
-        title: 'Home',
-        tabBarIcon: ({ tintColor }) => (
-            <Icon name={'home'} color={tintColor} size={24}/>
-        )
+        headerTitle: '主页'
     };
     
     _renderItem = (data) => {
         return (
             <ItemLabel onPress={() => {
-                this.openPage(data.item.page, { title: data.item.title });
+                this.openPage(data.item.page, { headerTitle: data.item.headerTitle });
             }}>
-                {data.item.title}
+                {data.item.headerTitle}
             </ItemLabel>
         );
     };

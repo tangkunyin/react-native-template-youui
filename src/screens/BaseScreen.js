@@ -11,19 +11,17 @@ const Container = styled.View`
 `;
 
 export default class BaseScreen extends Component {
-    static navigationOptions = ({ navigation, screenProps }) => ({
-        tabBarVisible: false,
-        headerTitle: navigation.state.params.title
+    static navigationOptions = ({ navigation }) => ({
+        headerTitle: navigation.state.params.headerTitle
     });
 
-    constructor(props) {
-        super(props);
-        this.openPage = this.openPage.bind(this);
-    }
-
-    openPage(page, params) {
+    goBack = () => {
+        this.props.navigation.goBack && this.props.navigation.goBack();
+    };
+    
+    openPage = (page, params) => {
         this.props.navigation.navigate && this.props.navigation.navigate(page, params);
-    }
+    };
     
     renderContent() {
         return null;
