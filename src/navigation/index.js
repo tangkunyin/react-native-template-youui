@@ -1,34 +1,69 @@
 'use strict';
 
 import React from 'react';
-import { createStackNavigator } from 'react-navigation';
-import { createBottomTabNavigator, BottomTabBar } from 'react-navigation-tabs';
-import { TabBarOptions } from '../config/NavigationConfig';
-import { HomeTabChildScreens, MineTabChildScreens } from './AppScreens';
+import { Easing, Animated } from 'react-native';
+import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import { BottomTabBar } from 'react-navigation-tabs';
+import StackViewStyleInterpolator from 'react-navigation/src/views/StackView/StackViewStyleInterpolator';
+import { StackNavigatorConfig, BottomTabNavigatorConfig, TabBarOptions } from '../config/NavigationConfig';
 
 
-// customize the tabBarComponent
-const TabBarComponent = props => <BottomTabBar {...props} />;
+// App Screens
+import HomeScreen from '../screens/home/index';
+import MineScreen from '../screens/mine/index';
+import StatusBarPlayground from '../screens/home/views/StatusBarPlayground';
 
 
 /**
- * path属性适用于其他app或浏览器使用url打开本app并进入指定页面。
- * path属性用于声明一个界面路径，例如：【/pages/Home】。
- * 此时我们可以在手机浏览器中输入：app名称://pages/Home来启动该App，并进入Home界面。
+ * customize the tabBarComponent
+ * @param props
+ * @returns {*}
+ * @constructor
  */
-const Navigation = createBottomTabNavigator(
+const TabBarComponent = props => <BottomTabBar {...props} />;
+
+/**
+ * Create NavigationController
+ */
+const CreateUINavigationController = (screens) => {
+    const controllers = {};
+    Object.keys(screens).forEach((key) => {
+        const screenValue = screens[key];
+        if (!screenValue.navigationOptions) {
+            screenValue.navigationOptions = options => StackNavigatorConfig(options, screenValue.root);
+        }
+        controllers[key] = screenValue;
+    });
+    return createStackNavigator(controllers, {
+        mode: 'card',
+        headerMode: 'float',
+        transitionConfig: () => ({
+            transitionSpec: {
+                duration: 400,
+                easing: Easing.out(Easing.poly(4)),
+                timing: Animated.timing,
+            },
+            screenInterpolator: StackViewStyleInterpolator.forHorizontal,
+            isModal: false
+        })
+    });
+};
+
+/**
+ * Create TabBarViewController
+ */
+const UITabBarController = createBottomTabNavigator(
     {
         home: {
-            screen: createStackNavigator(HomeTabChildScreens, {
-                mode: 'card',
-                headerMode: 'float'
+            screen: CreateUINavigationController({
+                HomeScreen: { screen: HomeScreen, root: true },
+                StatusBarPlayground: { screen: StatusBarPlayground }
             }),
             path: 'home'
         },
         mine: {
-            screen: createStackNavigator(MineTabChildScreens, {
-                mode: 'card',
-                headerMode: 'float'
+            screen: CreateUINavigationController({
+                MineScreen: { screen: MineScreen, root: true }
             }),
             path: 'mine'
         }
@@ -40,9 +75,10 @@ const Navigation = createBottomTabNavigator(
         swipeEnabled: false,
         animationEnabled: false,
         tabBarOptions: TabBarOptions,
+        navigationOptions: ({ navigation }) => BottomTabNavigatorConfig(navigation),
         // 可选项
-        tabBarComponent: props => <TabBarComponent {...props} style={{ borderTopColor: 'gray' }} />,
+        tabBarComponent: props => <TabBarComponent {...props} style={{ borderTopColor: '#999' }} />
     }
 );
 
-export default Navigation;
+export default UITabBarController;
